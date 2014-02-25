@@ -1,29 +1,21 @@
-#!/bin/bash
-#
-#   texthis file echoes a bunch of color codes to the
-#   terminal to demonstrate what's available.  Each
-#   line is the color code of one forground color,
-#   out of 17 (default + 16 escapes), followed by a
-#   test use of that color on all nine background
-#   colors (default + 8 escapes).
-#
+#!/bin/sh
+text=te
+echo '               40     41     42     43     44     45     46     47'
 
-text='te'
-
-echo -e "           \
-    40     41     42     43 \
-    44     45     46     47 ";
-
-for FGs in\
-    '    ' '   1' '  30' '1;30'\
-    '  31' '1;31' '  32' '1;32'\
-    '  33' '1;33' '  34' '1;34'\
-    '  35' '1;35' '  36' '1;36'\
-    '  37' '1;37'; do 
-    FG=${FGs// /}
-    echo -en " $FGs \033[${FG}m  $text  "
-    for BG in 40m 41m 42m 43m 44m 45m 46m 47m; do 
-        echo -en "$EINS \033[${FG}m\033[$BG  $text  \033[0m";
-    done
-    echo
+for FGs in \
+	'    ' '1;  ' \
+	'  30' '1;30' \
+	'  31' '1;31' \
+	'  32' '1;32' \
+	'  33' '1;33' \
+	'  34' '1;34' \
+	'  35' '1;35' \
+	'  36' '1;36' \
+	'  37' '1;37'; do
+	FG=${FGs// /}
+	echo -en " $FGs \e[${FG}m  $text  \e[0m"
+	for BG in {40..47}; do
+		echo -en " \e[${FG}m\e[${BG}m  $text  \e[0m"
+	done
+	echo
 done
