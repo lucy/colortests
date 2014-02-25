@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # ANSI color scheme script by pfh
 #

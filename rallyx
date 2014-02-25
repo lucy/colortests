@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 echo -e '
 
  \e[33m ▄      \e[31m      ▄▄      \e[32m      ▄▄      \e[34m      ▄▄      \e[35m      ▄▄      \e[36m      ▄▄
